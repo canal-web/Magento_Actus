@@ -1,0 +1,8 @@
+src/app/code/community/Canalweb/Actus                              app/code/community/Canalweb/Actus                             
+src/app/design/adminhtml/default/default/layout/canalweb_actus.xml app/design/adminhtml/default/default/layout/canalweb_actus.xml
+src/app/design/adminhtml/default/default/template/canalweb_actus   app/design/adminhtml/default/default/template/canalweb_actus  
+src/app/design/frontend/base/default/layout/canalweb_actus.xml     app/design/frontend/base/default/layout/canalweb_actus.xml    
+src/app/design/frontend/base/default/template/canalweb_actus       app/design/frontend/base/default/template/canalweb_actus      
+src/app/etc/modules/Canalweb_Actus.xml                             app/etc/modules/Canalweb_Actus.xml                            
+src/app/locale/en_US/Canalweb_Actus.csv                            app/locale/en_US/Canalweb_Actus.csv                           
+src/skin/frontend/base/default/images/placeholder                  skin/frontend/base/default/images/placeholder                 

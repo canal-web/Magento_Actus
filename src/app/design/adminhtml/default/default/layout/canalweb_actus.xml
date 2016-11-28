@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_actus_actu_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>cms/canalweb_actus/actu</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu" name="actu">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+
+        </reference>
+    </adminhtml_actus_actu_index>
+    <adminhtml_actus_actu_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="canalweb_actus/adminhtml_actu_grid" name="actu_grid"/>
+        </block>
+    </adminhtml_actus_actu_grid>
+    <!-- Actu add/edit action -->
+    <adminhtml_actus_actu_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>cms/canalweb_actus/actu</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu_edit" name="actu_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-"></block>
+            <block type="canalweb_actus/adminhtml_actu_edit_tabs" name="actu_tabs"></block>
+        </reference>
+        <reference name="head">
+            <action method="setCanLoadTinyMce"><load>1</load></action>
+        </reference>
+        <reference name="js">
+            <block type="core/template" name="catalog.wysiwyg.js" template="catalog/wysiwyg/js.phtml"/>
+        </reference>
+    </adminhtml_actus_actu_edit>
+
+    <adminhtml_actus_actu_attribute_index>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu_attribute" name="attribute_grid"></block>
+        </reference>
+    </adminhtml_actus_actu_attribute_index>
+    <adminhtml_actus_actu_attribute_edit>
+        <reference name="left">
+            <block type="canalweb_actus/adminhtml_actu_attribute_edit_tabs" name="attribute_edit_tabs"></block>
+        </reference>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu_attribute_edit" name="attribute_edit_content"></block>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" name="attribute_edit_js" template="canalweb_actus/attribute/js.phtml">
+                <action method="setMainEntityName"><name>actu</name></action>
+            </block>
+        </reference>
+    </adminhtml_actus_actu_attribute_edit>
+    <adminhtml_actus_actu_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>cms/canalweb_actus/actu_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu_comment" name="actu_comment_grid"/>
+        </reference>
+    </adminhtml_actus_actu_comment_index>
+    <adminhtml_actus_actu_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="canalweb_actus/adminhtml_actu_comment_grid" name="actu_comment_grid"/>
+        </block>
+    </adminhtml_actus_actu_comment_grid>
+    <adminhtml_actus_actu_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>cms/canalweb_actus/actu_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="canalweb_actus/adminhtml_actu_comment_edit" name="actu_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="canalweb_actus/adminhtml_actu_comment_edit_tabs" name="actu_comment_tabs"></block>
+        </reference>
+    </adminhtml_actus_actu_comment_edit>
+</layout>

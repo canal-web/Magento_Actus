@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Canalweb_Actus>
+            <version>1.0.0</version>
+        </Canalweb_Actus>
+    </modules>
+    <global>
+        <resources>
+            <canalweb_actus_setup>
+                <setup>
+                    <module>Canalweb_Actus</module>
+                    <class>Canalweb_Actus_Model_Resource_Setup</class>
+                </setup>
+            </canalweb_actus_setup>
+        </resources>
+        <blocks>
+            <canalweb_actus>
+                <class>Canalweb_Actus_Block</class>
+            </canalweb_actus>
+        </blocks>
+        <helpers>
+            <canalweb_actus>
+                <class>Canalweb_Actus_Helper</class>
+            </canalweb_actus>
+        </helpers>
+        <models>
+            <canalweb_actus>
+                <class>Canalweb_Actus_Model</class>
+                <resourceModel>canalweb_actus_resource</resourceModel>
+            </canalweb_actus>
+            <canalweb_actus_resource>
+                <class>Canalweb_Actus_Model_Resource</class>
+                <entities>
+                    <actu>
+                        <table>canalweb_actus_actu</table>
+                    </actu>
+                    <actu_comment>
+                        <table>canalweb_actus_actu_comment</table>
+                    </actu_comment>
+                    <actu_comment_store>
+                        <table>canalweb_actus_actu_comment_store</table>
+                    </actu_comment_store>
+                    <eav_attribute>
+                        <table>canalweb_actus_eav_attribute</table>
+                    </eav_attribute>
+                </entities>
+            </canalweb_actus_resource>
+        </models>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <canalweb_actus>
+                        <class>Canalweb_Actus_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </canalweb_actus>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <canalweb_actus>
+                    <file>canalweb_actus.xml</file>
+                </canalweb_actus>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Canalweb_Actus>
+                    <files>
+                        <default>Canalweb_Actus.csv</default>
+                    </files>
+                </Canalweb_Actus>
+            </modules>
+        </translate>
+        <global_search>
+            <actu>
+                <class>canalweb_actus/adminhtml_search_actu</class>
+                <acl>canalweb_actus</acl>
+            </actu>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Canalweb_Actus before="Mage_Adminhtml">Canalweb_Actus_Adminhtml</Canalweb_Actus>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <canalweb_actus>
+                <use>standard</use>
+                <args>
+                    <module>Canalweb_Actus</module>
+                    <frontName>canalweb_actus</frontName>
+                </args>
+            </canalweb_actus>
+        </routers>
+        <layout>
+            <updates>
+                <canalweb_actus>
+                    <file>canalweb_actus.xml</file>
+                </canalweb_actus>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Canalweb_Actus>
+                    <files>
+                        <default>Canalweb_Actus.csv</default>
+                    </files>
+                </Canalweb_Actus>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <canalweb_actus>
+            <actu>
+                <breadcrumbs>1</breadcrumbs>
+                <url_rewrite_list>news</url_rewrite_list>
+                <allow_comment>1</allow_comment>
+                <rss>1</rss>
+                <meta_title>actus</meta_title>
+            </actu>
+        </canalweb_actus>
+    </default>
+</config>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="canalweb_actus"><name>actu_comments</name><path>canalweb_actus/actu_customer_comment</path><label>actus Comments</label></action>
+        </reference>
+    </customer_account>
+    <canalweb_actus_actu_index translate="label" module="canalweb_actus">
+        <label>Actus list</label>
+        <update handle="page_two_columns_right" />
+        <reference name="content">
+            <block type="canalweb_actus/actu_list" name="actu_list" template="canalweb_actus/actu/list.phtml" />
+        </reference>
+    </canalweb_actus_actu_index>
+    <canalweb_actus_actu_view translate="label" module="canalweb_actus">
+        <label>Actu view page</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="canalweb_actus/actu_view" name="actu_view" template="canalweb_actus/actu/view.phtml" />
+            <block type="canalweb_actus/actu_comment_list" name="actu.comments_list" as="actu_comment_list" template="canalweb_actus/actu/comment/list.phtml">
+                <block type="canalweb_actus/actu_comment_form" name="comment_form" as="comment_form" template="canalweb_actus/actu/comment/form.phtml" />
+            </block>
+        </reference>
+    </canalweb_actus_actu_view>
+    <canalweb_actus_actu_rss translate="label" module="canalweb_actus">
+        <label>Actus rss feed</label>
+        <block type="canalweb_actus/actu_rss" output="toHtml" name="canalweb_actus.actu.rss" />
+    </canalweb_actus_actu_rss>
+    <rss_index_index>
+        <reference name="content">
+            <block type="canalweb_actus/rss" name="actus.rss" template="canalweb_actus/rss.phtml">
+                <action method="addFeed" ifconfig="canalweb_actus/actu/rss" translate="label" module="canalweb_actus">
+                    <label>Actus</label>
+                    <url helper="canalweb_actus/actu/getRssUrl" />
+                </action>
+            </block>
+        </reference>
+    </rss_index_index>
+    <canalweb_actus_actu_customer_comment_index translate="label" module="canalweb_actus">
+        <label>My Actus comments</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="canalweb_actus/actu_customer_comment_list" name="customer_actu_comments" template="canalweb_actus/actu/customer/comment/list.phtml"/>
+        </reference>
+    </canalweb_actus_actu_customer_comment_index>
+    <canalweb_actus_actu_customer_comment_view translate="label" module="canalweb_actus">
+        <label>My Actus comment view</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="canalweb_actus/actu_customer_comment_view" name="customer_actu_comment" template="canalweb_actus/actu/customer/comment/view.phtml"/>
+        </reference>
+    </canalweb_actus_actu_customer_comment_view>
+</layout>

@@ -1,0 +1,55 @@
+<?php
+/**
+ * Canalweb_Actus extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Actu list template
+ *
+ * @category    Canalweb
+ * @package     Canalweb_Actus
+ * @author      Canalweb
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_actus = $this->getActus(); ?>
+<div class="page-title actu-title">
+    <?php if (Mage::helper('canalweb_actus/actu')->isRssEnabled()) : ?>
+        <a href="<?php echo Mage::helper('canalweb_actus/actu')->getRssUrl();?>" class="link-rss"><?php echo Mage::helper('canalweb_actus')->__('Subscribe to RSS Feed')?></a>
+    <?php endif;?>
+    <h1><?php echo Mage::helper('canalweb_actus')->__('Actus') ?></h1>
+</div>
+<?php if ($_actus->getSize() > 0) :?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="actu-list-container">
+    <?php foreach ($_actus as $_actu) : ?>
+        <div class="actu-list-item">
+            <?php if ($_actu->getImage()) :?>
+                <img src="<?php echo Mage::helper('canalweb_actus/actu_image')->init($_actu, 'image')->resize(75);?>" alt="<?php echo $this->escapeHtml($_actu->getTitle());?>" />
+            <?php endif;?>
+            <div class="actu-infos">
+                <a href="<?php echo $_actu->getActuUrl()?>">
+                    <h2><?php echo $_actu->getTitle();?></h2>
+                </a>
+                <div class="actu-resume">
+                    <?php echo $_actu->getShortcontent();?>
+                </div>
+            </div>
+        </div>
+    <?php endforeach;?>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+    <?php echo Mage::helper('canalweb_actus')->__('There are no actus at this moment');?>
+<?php endif;?>

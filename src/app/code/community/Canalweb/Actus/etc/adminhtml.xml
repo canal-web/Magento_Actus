@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <canalweb_actus translate="title" module="canalweb_actus">
+                                        <title>Actus</title>
+                                    </canalweb_actus>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <cms>
+                        <children>
+                            <canalweb_actus translate="title" module="canalweb_actus">
+                                <title>Actus</title>
+                                <children>
+                                    <actu translate="title" module="canalweb_actus">
+                                        <title>Actu</title>
+                                        <sort_order>0</sort_order>
+                                    </actu>
+                                    <actu_comments translate="title" module="canalweb_actus">
+                                        <title>Manage Actu Comments</title>
+                                        <sort_order>5</sort_order>
+                                    </actu_comments>
+                                    <actu_attributes translate="title" module="canalweb_actus">
+                                        <title>Manage actu attributes</title>
+                                        <sort_order>7</sort_order>
+                                    </actu_attributes>
+                                </children>
+                            </canalweb_actus>                        </children>
+                    </cms>
+
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <cms>
+            <children>
+                <canalweb_actus translate="title" module="canalweb_actus">
+                    <title>Actus</title>
+                    <sort_order>0</sort_order>
+                    <children>
+                        <actu translate="title" module="canalweb_actus">
+                            <title>Actu</title>
+                            <action>adminhtml/actus_actu</action>
+                            <sort_order>0</sort_order>
+                        </actu>
+                        <actu_comments translate="title" module="canalweb_actus">
+                            <title>Manage Actu Comments</title>
+                            <action>adminhtml/actus_actu_comment</action>
+                            <sort_order>4</sort_order>
+                        </actu_comments>
+                        <actu_attributes translate="title" module="canalweb_actus">
+                            <title>Manage actu Attributes</title>
+                            <action>adminhtml/actus_actu_attribute</action>
+                            <sort_order>7</sort_order>
+                        </actu_attributes>
+                    </children>
+                </canalweb_actus>            </children>
+        </cms>
+
+    </menu>
+</config>

@@ -1,0 +1,47 @@
+<?php
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Actu view widget template
+ *
+ * @category    Canalweb
+ * @package     Canalweb_Actus
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php $_actu = $this->getCurrentActu();?>
+<?php if ($_actu) :?>
+    <div class="actu-widget-view">
+        <h3><?php echo $_actu->getTitle()?></h3>
+        <div>
+            <div class="title-widget">
+                <?php echo Mage::helper('canalweb_actus')->__('Title');?>:<?php echo $_actu->getTitle();?>
+            </div>
+            <div class="shortcontent-widget">
+                <?php echo Mage::helper('canalweb_actus')->__('Short content');?>:<?php echo $_actu->getShortcontent();?>
+            </div>
+            <div class="content-widget">
+                <?php echo Mage::helper('canalweb_actus')->__('Content (full)');?>:<?php echo $_actu->getContent();?>
+            </div>
+            <div class="image-widget">
+                <?php if ($_actu->getImage()) :?>
+    <img src="<?php echo Mage::helper('canalweb_actus/actu_image')->init($_actu, 'image')->resize(75);?>" alt="<?php echo $this->escapeHtml($_actu->getTitle());?>" />
+<?php endif;?>
+            </div>
+
+        </div>
+    </div>
+<?php endif;?>

@@ -1,0 +1,13 @@
+{
+    "name": "canal-web/magento-actus",
+    "type": "magento-module",
+    "description": "Add blog-like content management to Magento",
+    "require": {
+    },
+    "authors":[
+      {
+            "name":"Deborah Jean",
+            "email":"deborah@canal-web.fr"
+        }
+    ]
+}

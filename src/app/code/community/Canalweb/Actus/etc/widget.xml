@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Canalweb_Actus extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<widgets>
+    <actus_actu_view type="canalweb_actus/actu_widget_view" translate="name description" module="canalweb_actus">
+        <name>Actu view</name>
+        <description>Actu view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <actu_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Actu</label>
+                <type>label</type>
+                <helper_block>
+                    <type>canalweb_actus/adminhtml_actu_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Actu</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </actu_id>
+        </parameters>
+    </actus_actu_view>
+    <actus_actu_link type="canalweb_actus/actu_widget_link" translate="name description" module="canalweb_actus">
+        <name>Actu link</name>
+        <description>Actu link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <actu_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Actu</label>
+                <type>label</type>
+                <helper_block>
+                    <type>canalweb_actus/adminhtml_actu_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Actu</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </actu_id>
+        </parameters>
+    </actus_actu_link>
+</widgets>

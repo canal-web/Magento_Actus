@@ -1,0 +1,34 @@
+<?php
+/**
+ * Canalweb_Actus extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Canalweb
+ * @package        Canalweb_Actus
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Actu view template
+ *
+ * @category    Canalweb
+ * @package     Canalweb_Actus
+ * @author      Canalweb
+ */
+?>
+<?php $_actu = $this->getCurrentActu();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title actu-title">
+    <h1><?php echo $_actu->getTitle(); ?></h1>
+</div>
+<div class="actu-view">
+    <div class="actu-content">
+        <?php echo $_actu->getContent();?>
+    </div>
+</div>
